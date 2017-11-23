@@ -6,10 +6,10 @@ h1 {
   width:auto;
   height:100%;
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-  grid-column-gap: 2px;
-  grid-row-gap:2px;
+  grid-template-columns: 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10%;
+  grid-column-gap: 5px;
+  grid-row-gap:5px;
 }
 
 .item {
@@ -17,7 +17,5 @@ h1 {
   height:100%;
   background: blue;
   text-align: center;
-}
-.item p {
-  margin: 0;
+  cursor:pointer;
 }
