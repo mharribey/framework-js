@@ -1,3 +1,23 @@
 h1 {
   font-size: 4em;
 }
+
+#launchpad {
+  width:auto;
+  height:100%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-column-gap: 2px;
+  grid-row-gap:2px;
+}
+
+.item {
+  width:100%;
+  height:100%;
+  background: blue;
+  text-align: center;
+}
+.item p {
+  margin: 0;
+}
