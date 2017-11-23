@@ -18,4 +18,11 @@ h1 {
   background: blue;
   text-align: center;
   cursor:pointer;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.item:hover {
+  opacity: 0.6;
 }
