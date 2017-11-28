@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>LAUCHNPAD</h1>
+    <h1>LAUNCHPAD</h1>
     <div id="launchpad"></div>
+    <div class="result">
+      <p id="coord"><b>Letter = </b> ? </p>
+    </div>
     <script type="text/javascript" src="init.js"></script>
   </body>
 </html>
