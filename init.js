@@ -27,12 +27,12 @@ Array.from(item).forEach(pad=>{
 });
 
 // AVEC TOUCHES
-
+-
 document.addEventListener("keypress",function(el){
   var keyName = el.key;
   console.log(keyName);
   Array.from(item).forEach(pad=>{
-    if (keyName == pad.id.toLowerCase()) {
+    if (keyName == pad.id.toLowerCase() || keyName == pad.id) {
         Array.from(item).forEach(pad1=>{
           pad1.style.backgroundColor = "blue";
         });
