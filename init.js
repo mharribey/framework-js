@@ -7,7 +7,7 @@ var array = ["A","Z","E","R","T",
             "Y","U","I","O","P",
             "Q","S","D","F","G",
             "H","J","K","L","M",
-            "W","X","C","C","B"]
+            "W","X","C","V","B"]
 
 // CREATION LAUNCHPAD + LETTRES
 Array.from(array).forEach(letter=>{
@@ -24,6 +24,7 @@ Array.from(item).forEach(pad=>{
     var elt = this.id;
     coord.innerHTML = "<b>Letter = </b>" + elt;
     placeSong();
+    soundName(elt.toLowerCase());
   });
 });
 
@@ -32,7 +33,6 @@ Array.from(item).forEach(pad=>{
 
 document.addEventListener("keypress",function(el){
   var keyName = el.key;
-  console.log(keyName);
   Array.from(item).forEach(pad=>{
     if (keyName == pad.id.toLowerCase() || keyName == pad.id) {
         Array.from(item).forEach(pad1=>{
@@ -40,6 +40,7 @@ document.addEventListener("keypress",function(el){
         });
       pad.style.backgroundColor = "red";
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
+      soundName(pad.id.toLowerCase());
     }
   });
   placeSong();
@@ -74,4 +75,9 @@ function deplace() {
   var cursor = document.getElementById('cursor');
   cursor.style.left = count +"%";
 }
+
+function soundName(value) {
+  var el = value + ".mp3"
+  console.log(el);
+  return el;
 }
