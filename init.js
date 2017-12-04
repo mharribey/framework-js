@@ -23,11 +23,13 @@ Array.from(item).forEach(pad=>{
     this.style.backgroundColor = "red";
     var elt = this.id;
     coord.innerHTML = "<b>Letter = </b>" + elt;
+    placeSong();
   });
 });
 
+
 // AVEC TOUCHES
--
+
 document.addEventListener("keypress",function(el){
   var keyName = el.key;
   console.log(keyName);
@@ -40,4 +42,36 @@ document.addEventListener("keypress",function(el){
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
     }
   });
+  placeSong();
 });
+
+var count = 0;
+
+function placeSong(){
+  var elt = document.createElement('div');
+  elt.className = "point";
+  elt.style.left = count + "%";
+  document.getElementById('timeline').appendChild(elt);
+}
+
+function startCursor(e) {
+  var cursor = document.getElementById('cursor');
+  count = 0;
+  var interval = null;
+  interval = setInterval( deplace, 10);
+}
+
+function clearTimeline(){
+  var points = document.getElementsByClassName('point');
+  Array.from(points).forEach(p=>{
+    p.remove();
+  });
+}
+
+function deplace() {
+  if (count < 99.9){
+  count+= 0.1;
+  var cursor = document.getElementById('cursor');
+  cursor.style.left = count +"%";
+}
+}
