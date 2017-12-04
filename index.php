@@ -12,7 +12,7 @@
       <p id="coord"><b>Letter = </b> ? </p>
     </div>
 
-    <button href="" onclick="startCursor()">start</button>
+    <button href="" onclick="startCursor()" id="play-mode">start</button>
     <button href="" onclick="clearTimeline()">clear</button>
     <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">

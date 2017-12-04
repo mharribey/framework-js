@@ -49,6 +49,7 @@ document.addEventListener("keypress",function(el){
 });
 
 var count = 0;
+var isPaused = true;
 
 function placeSong(value){
   var elt = document.createElement('div');
@@ -59,11 +60,17 @@ function placeSong(value){
   arrangement.push({timecode: count, note: value})
 }
 
-function startCursor(e) {
-  var cursor = document.getElementById('cursor');
-  count = 0;
-  var interval = null;
-  interval = setInterval( deplace, 10);
+
+
+function startCursor() {
+  var button = document.getElementById('play-mode');
+  if(button.innerHTML == "start"){
+    isPaused = false;
+    button.innerHTML = "pause";
+  }else{
+    isPaused = true;
+    button.innerHTML = "start";
+  }
 }
 
 function clearTimeline(){
@@ -73,15 +80,13 @@ function clearTimeline(){
   });
 }
 
-function deplace() {
-  if (count < 99.9){
-  count+= 0.1;
+function deplace(){
+  if (count < 99.9 && (isPaused == false)) {
+  count += 0.1;
   var cursor = document.getElementById('cursor');
   cursor.style.left = count +"%";
+  }
 }
-}
-
-
 
 function soundName(value) {
   var el = value + ".mp3"
