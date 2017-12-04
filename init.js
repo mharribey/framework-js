@@ -60,9 +60,10 @@ function placeSong(value){
   arrangement.push({timecode: count, note: value})
 }
 
+var interval = 0;
+var isLauched = false
 
-
-function startCursor() {
+function startCursor(e) {
   var button = document.getElementById('play-mode');
   if(button.innerHTML == "start"){
     isPaused = false;
@@ -71,6 +72,19 @@ function startCursor() {
     isPaused = true;
     button.innerHTML = "start";
   }
+  var cursor = document.getElementById('cursor');
+  count = 0;
+  if (isLauched){
+    console.log("Reset");
+  interval = window.clearInterval(interval);
+  interval = null;
+}else{
+  console.log("first");
+  interval = 0;
+  isLauched = true;
+}
+  console.log(interval);
+  interval = window.setInterval( deplace, 10);
 }
 
 function clearTimeline(){
