@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>LAUNCHPAD</h1>
     <div id="launchpad"></div>
 
     <div class="result">
