@@ -7,7 +7,9 @@ var array = ["A","Z","E","R","T",
             "Y","U","I","O","P",
             "Q","S","D","F","G",
             "H","J","K","L","M",
-            "W","X","C","V","B"]
+            "W","X","C","V","B"];
+
+var arrangement = [];
 
 // CREATION LAUNCHPAD + LETTRES
 Array.from(array).forEach(letter=>{
@@ -23,7 +25,7 @@ Array.from(item).forEach(pad=>{
     this.style.backgroundColor = "red";
     var elt = this.id;
     coord.innerHTML = "<b>Letter = </b>" + elt;
-    placeSong();
+    placeSong(elt.toLowerCase());
     soundName(elt.toLowerCase());
   });
 });
@@ -41,18 +43,20 @@ document.addEventListener("keypress",function(el){
       pad.style.backgroundColor = "red";
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
       soundName(pad.id.toLowerCase());
+      placeSong(pad.id.toLowerCase());
     }
   });
-  placeSong();
 });
 
 var count = 0;
 
-function placeSong(){
+function placeSong(value){
   var elt = document.createElement('div');
   elt.className = "point";
   elt.style.left = count + "%";
   document.getElementById('timeline').appendChild(elt);
+
+  arrangement.push({timecode: count, note: value})
 }
 
 function startCursor(e) {
@@ -75,6 +79,9 @@ function deplace() {
   var cursor = document.getElementById('cursor');
   cursor.style.left = count +"%";
 }
+}
+
+
 
 function soundName(value) {
   var el = value + ".mp3"
