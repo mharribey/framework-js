@@ -31,7 +31,9 @@ Array.from(item).forEach(pad=>{
     this.style.backgroundColor = "red";
     var elt = this.id;
     coord.innerHTML = "<b>Letter = </b>" + elt;
+    if(!isPaused && count != 0){
     placeSong(elt.toLowerCase());
+  }
   });
 });
 
@@ -47,7 +49,9 @@ document.addEventListener("keydown",function(el){
         });
       pad.style.backgroundColor = "red";
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
-      placeSong(pad.id.toLowerCase());
+      if(!isPaused && count != 0){
+      placeSong(elt.toLowerCase());
+    }
       isPress = true;
     }
   });
@@ -109,5 +113,7 @@ function deplace(){
   count += 0.1;
   var cursor = document.getElementById('cursor');
   cursor.style.left = count +"%";
-  }
+}else{
+  count = 0;
+}
 }
