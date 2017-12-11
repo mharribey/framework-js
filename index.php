@@ -19,7 +19,7 @@
       </div>
 
     </div>
-    <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="init.js"></script>
   </body>
 </html>

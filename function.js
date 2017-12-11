@@ -10,6 +10,15 @@ function placeSong(value){
   }
 }
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 
 function startCursor(e) {
   var button = document.getElementById('play-mode');
@@ -34,7 +43,7 @@ function startCursor(e) {
     interval = 0;
     isLauched = true;
   }
-  interval = window.setInterval( deplace, 10);
+  interval = window.setInterval(deplace, 10);
 }
 
 function clearTimeline(){

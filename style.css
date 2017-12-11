@@ -1,5 +1,10 @@
 body {
   margin:0;
+  height: 100%;
+  color:white;
+  background-color: #030020;
+  font-family: "Roboto";
+  font-weight: bolder;
 }
 h1 {
   font-size: 2em;
@@ -7,31 +12,32 @@ h1 {
 }
 
 #launchpad {
-  width:30em;
-  max-height:35em;
+  width:40em;
+  max-height:22em;
   height:100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0.2em auto 0;
+  margin: 2em auto 0;
 }
 
 .item {
   width:5em;
-  margin:0.5em;
-  background: blue;
+  margin:0.3em;
+  background: white;
   text-align: center;
   cursor:pointer;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
   display: flex;
+  border-radius: 7px;
 }
 
 .item p {
   margin:0 auto;
   align-self: center;
-  color:white;
+  color:black;
   font-size: 1em;
   text-transform: uppercase;
 }
@@ -49,14 +55,15 @@ h1 {
 .timeline {
   width: 100%;
   height: 50px;
-  background: #FAFAFA;
+  background: #030020;
+  margin-top:1em;
 }
 
 .cursor {
   position: absolute;
   height: 50px;
   width: 2px;
-  background: #000000;
+  background: white;
   left:0%;
 }
 

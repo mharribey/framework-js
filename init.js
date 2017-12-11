@@ -13,11 +13,13 @@ var array = ["A","Z","E","R","T",
 var arrangement = [];
 var count = 0;
 var interval = 0;
+var colorPad;
 
 var isGoing = false;
 var isPaused = true;
 var isLauched = false;
 var isPress = false;
+
 
 // CREATION LAUNCHPAD + LETTRES
 Array.from(array).forEach(letter=>{
@@ -26,17 +28,20 @@ Array.from(array).forEach(letter=>{
 
 // SELECTION D'UN PAD
 Array.from(item).forEach(pad=>{
+  var color = getRandomColor();
+
   pad.addEventListener("click",function(){
     Array.from(item).forEach(pad1=>{
-      pad1.style.backgroundColor = "blue";
+      pad1.style.backgroundColor = "white";
     });
-    this.style.backgroundColor = "red";
+    this.style.background = "radial-gradient(red,white)";
     var elt = this.id;
     coord.innerHTML = "<b>Letter = </b>" + elt;
     if(!isPaused && count != 0){
     placeSong(elt.toLowerCase());
   }
   });
+  pad.style.boxShadow = "0px 0px 25px 1px" + color;
 });
 
 
@@ -47,9 +52,9 @@ document.addEventListener("keydown",function(el){
   Array.from(item).forEach(pad=>{
     if ((keyName == pad.id.toLowerCase() || keyName == pad.id) && (isPress == false)) {
         Array.from(item).forEach(pad1=>{
-          pad1.style.backgroundColor = "blue";
+          pad1.style.backgroundColor = "white";
         });
-      pad.style.backgroundColor = "red";
+      pad.style.background = "radial-gradient(red,white)";
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
       if(!isPaused && count != 0){
       placeSong(elt.toLowerCase());
@@ -63,7 +68,7 @@ document.addEventListener("keyup",function(el){
   isPress = false;
   var keyName = el.key;
   Array.from(item).forEach(pad=>{
-    pad.style.backgroundColor = "blue";
+    pad.style.background = "white";
   });
 });
 
