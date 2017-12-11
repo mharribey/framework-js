@@ -6,7 +6,7 @@ function placeSong(value){
   document.getElementById('timeline').appendChild(elt);
   playSound(value.toUpperCase());
   if(isGoing == true){
-    arrangement.push({timecode: count, note: value+".mp3"})
+    arrangement.push({timecode: Math.round(count*100)/100, note: value})
   }
 }
 
@@ -46,6 +46,15 @@ function startCursor(e) {
   interval = window.setInterval(deplace, 10);
 }
 
+function checkTimeline(){
+  for (var i = 0; i < arrangement.length; i++) {
+    if(arrangement[i]["timecode"] == count){
+      playSound(arrangement[i]["note"]);
+      console.log("player");
+    }
+  }
+}
+
 function clearTimeline(){
   var points = document.getElementsByClassName('point');
   Array.from(points).forEach(p=>{
@@ -55,9 +64,10 @@ function clearTimeline(){
 
 function deplace(){
   var cursor = document.getElementById('cursor');
-
+  checkTimeline();
   if (count < 99.9 && (isPaused == false)) {
     count += 0.1;
+    count = Math.round(count*100)/100;
     cursor.style.left = count + "%";
   }else{
     count = 0;
