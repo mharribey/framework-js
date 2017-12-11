@@ -2,6 +2,7 @@ var lp = document.querySelector("#launchpad");
 var coord = document.querySelector("#coord");
 var item = document.getElementsByClassName("item");
 var points = document.getElementsByClassName('point');
+var help = document.querySelector(".help");
 
 
 // LETTRES
@@ -30,25 +31,6 @@ document.body.onkeyup = function(e){
     if(e.keyCode == 13){ //RETURN
       clearTimeline();
     }
-}
-
-// DELETE A POINT BY click
-
-function deleteTimecode(){
-  Array.from(points).forEach(p=>{
-    p.addEventListener("click",function(){
-      var style = this.style.left;
-      console.log(style);
-      for (var i = 0; i < arrangement.length; i++) {
-        console.log(arrangement[i].timecode+"%");
-        if(arrangement[i].timecode+"%" == style){
-          arrangement.slice(i, 1);
-          break;
-        }
-      }
-      this.remove();
-    });
-  });
 }
 
 

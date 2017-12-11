@@ -23,6 +23,7 @@
     </div>
 
     <a href="liste.php" class="link">Sounds List</a>
+    <p class="help">Click on the beat to delete it</p>
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="audio_player.js"></script>

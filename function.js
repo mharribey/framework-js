@@ -1,4 +1,4 @@
-
+// PLACER UN SAMPLE A UN TIMECODE DONNE
 function placeSong(value){
   var elt = document.createElement('div');
   elt.className = "point";
@@ -10,6 +10,7 @@ function placeSong(value){
   }
 }
 
+// RANDOM COLOR FOR BOX SHADOW
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -19,7 +20,7 @@ function getRandomColor() {
   return color;
 }
 
-
+// DEMARRE LE DEPLACEMENT DU CURSEUR
 function startCursor() {
   var button = document.getElementById('play-mode');
   var cursor = document.getElementById('cursor');
@@ -46,6 +47,7 @@ function startCursor() {
   interval = window.setInterval(deplace, 10);
 }
 
+//LIS LES SONS SUR LA TIMELINE
 function checkTimeline(){
   for (var i = 0; i < arrangement.length; i++) {
     if(arrangement[i]["timecode"] == count){
@@ -55,6 +57,7 @@ function checkTimeline(){
   }
 }
 
+//REINITIALISE LA TIMELINE
 function clearTimeline(){
   var points = document.getElementsByClassName('point');
   Array.from(points).forEach(p=>{
@@ -63,6 +66,7 @@ function clearTimeline(){
   arrangement = [];
 }
 
+//DEFINI UN INTERVAL POUR LE DEPLACEMENT DU CURSEUR
 function deplace(){
   var cursor = document.getElementById('cursor');
   checkTimeline();
@@ -73,4 +77,20 @@ function deplace(){
   }else{
     count = 0;
   }
+}
+
+//PERMET DE DETRUIRE UN TIMECODE SPECIFIQUE
+function deleteTimecode(){
+  Array.from(points).forEach(p=>{
+    p.addEventListener("click",function(){
+      var style = this.style.left;
+      for (var i = 0; i < arrangement.length; i++) {
+        if(arrangement[i].timecode+"%" == style){
+          arrangement.splice(i, 1);
+          break;
+        }
+      }
+      this.remove();
+    });
+  });
 }
