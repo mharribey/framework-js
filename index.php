@@ -10,7 +10,16 @@
     <div id="launchpad"></div>
 
     <div class="result">
-      <p id="coord"><b>Letter = </b> ? </p>
+      <p>Nombre de temps -</p>
+      <select class="beat-value" name="bpm-value">
+        <option value="8">8</option>
+        <option value="16">16</option>
+        <option value="32">32</option>
+      </select>
+    </div>
+    <div class="result">
+      <p>BPM -</p>
+      <input type="number" name="" value="120" class="bpm-value">
     </div>
 
     <button onclick="startCursor()" id="play-mode">start</button>
@@ -21,9 +30,8 @@
 
       </div>
     </div>
-
-    <a href="liste.php" class="link">Sounds List</a>
     <p class="help">Click on the beat to delete it</p>
+    <a href="liste.php" class="link">Sounds List</a>
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="audio_player.js"></script>

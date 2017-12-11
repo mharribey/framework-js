@@ -42,13 +42,13 @@ h1 {
 }
 
 .item:hover {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 .result {
   display: flex;
   justify-content: center;
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .timeline {
@@ -68,7 +68,7 @@ h1 {
   left:0%;
 }
 
-.point {
+.point,.point-sep {
   position: absolute;
   height: 50px;
   width: 2px;
@@ -77,6 +77,10 @@ h1 {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+.point-sep {
+  z-index: 99999;
+  opacity: 0.2;
 }
 .point:hover{
   height:60px;
@@ -100,11 +104,28 @@ h1 {
   color:#030020;
   background-color: white;
 }
+
 .help {
   font-weight: normal;
   justify-content: center;
   margin: 2em auto 0;
   display: flex;
+}
+
+p {
+  margin:0;
+}
+
+.beat-value, .bpm-value{
+  margin-left:0.5em;
+  height:2em;
+  width:4em;
+  text-align: center;
+  align-self:center;
+  font-weight: bolder;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
 }
 
 @media screen and (max-width:500px){

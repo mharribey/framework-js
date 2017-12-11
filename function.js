@@ -10,6 +10,67 @@ function placeSong(value){
   }
 }
 
+//GET BPM AND BEAT VALUE
+function getValue(){
+  var bpm = document.querySelector(".bpm-value").value;
+  var beat = document.querySelector(".beat-value");
+  var value = beat.options[beat.selectedIndex].value;
+
+  intervalValue = Math.floor(((bpm/60)*value)/10);
+}
+
+function setBeat(){
+  var beat = document.querySelector(".beat-value");
+  var value = beat.options[beat.selectedIndex].value;
+
+  switch(value) {
+    case "8":
+      Array.from(points2).forEach(p=>{
+        p.remove();
+      });
+      var elt = document.createElement('div');
+      elt.className = "point-sep";
+      elt.style.left = "50%";
+      timeline.appendChild(elt);
+      break;
+    case "16":
+      Array.from(points2).forEach(p=>{
+        p.remove();
+      });
+      var elt = document.createElement('div');
+      var elt2 = document.createElement('div');
+      elt.className = "point-sep";
+      elt2.className = "point-sep";
+      elt.style.left = "33%";
+      elt2.style.left = "66%";
+      timeline.appendChild(elt);
+      timeline.appendChild(elt2);
+      break;
+    case "32":
+      Array.from(points2).forEach(p=>{
+        p.remove();
+      });
+      var elt = document.createElement('div');
+      var elt2 = document.createElement('div');
+      var elt3 = document.createElement('div');
+      var elt4 = document.createElement('div');
+      elt.className = "point-sep";
+      elt2.className = "point-sep";
+      elt3.className = "point-sep";
+      elt4.className = "point-sep";
+      elt.style.left = "20%";
+      elt2.style.left = "40%";
+      elt3.style.left = "60%";
+      elt4.style.left = "80%";
+      timeline.appendChild(elt);
+      timeline.appendChild(elt2);
+      timeline.appendChild(elt3);
+      timeline.appendChild(elt4);
+      break;
+  }
+}
+
+
 // RANDOM COLOR FOR BOX SHADOW
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
@@ -30,6 +91,9 @@ function startCursor() {
     isGoing = true;
     isPaused = false;
     button.innerHTML = "pause";
+    setBeat();
+    getValue();
+
   } else {
     isPaused = true;
     isGoing = false;
@@ -44,7 +108,8 @@ function startCursor() {
     interval = 0;
     isLauched = true;
   }
-  interval = window.setInterval(deplace, 10);
+  console.log(intervalValue);
+  interval = window.setInterval(deplace, intervalValue);
 }
 
 //LIS LES SONS SUR LA TIMELINE

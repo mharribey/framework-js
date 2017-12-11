@@ -1,8 +1,10 @@
 var lp = document.querySelector("#launchpad");
-var coord = document.querySelector("#coord");
 var item = document.getElementsByClassName("item");
 var points = document.getElementsByClassName('point');
+var points2 = document.getElementsByClassName('point-sep');
 var help = document.querySelector(".help");
+var timeline = document.getElementById('timeline');
+var intervalValue;
 
 
 // LETTRES
@@ -49,10 +51,10 @@ Array.from(item).forEach(pad=>{
     });
     this.style.background = "radial-gradient(red,white)";
     var elt = this.id;
-    coord.innerHTML = "<b>Letter = </b>" + elt;
     if(!isPaused && count != 0){
-    placeSong(elt.toLowerCase());
-  }
+      placeSong(elt.toLowerCase());
+    }
+    playSound(pad.id.toUpperCase());
   });
   pad.style.boxShadow = "0px 0px 25px 1px" + color;
 });
@@ -68,10 +70,10 @@ document.addEventListener("keydown",function(el){
           pad1.style.backgroundColor = "white";
         });
       pad.style.background = "radial-gradient(red,white)";
-      coord.innerHTML = "<b>Letter = </b>" + pad.id;
       if(!isPaused && count != 0){
-      placeSong(pad.id.toLowerCase());
-    }
+        placeSong(pad.id.toLowerCase());
+      }
+      playSound(pad.id.toUpperCase());
       isPress = true;
     }
   });
