@@ -21,5 +21,6 @@
     </div>
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
+    <script type="text/javascript" src="audio_player.js"></script>
   </body>
 </html>

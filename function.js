@@ -4,7 +4,7 @@ function placeSong(value){
   elt.className = "point";
   elt.style.left = count + "%";
   document.getElementById('timeline').appendChild(elt);
-
+  playSound('fghjkl');
   if(isGoing == true){
     arrangement.push({timecode: count, note: value+".mp3"})
   }
@@ -59,5 +59,7 @@ function deplace(){
   if (count < 99.9 && (isPaused == false)) {
     count += 0.1;
     cursor.style.left = count + "%";
+  }else{
+    count = 0;
   }
 }

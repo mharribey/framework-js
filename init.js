@@ -57,7 +57,7 @@ document.addEventListener("keydown",function(el){
       pad.style.background = "radial-gradient(red,white)";
       coord.innerHTML = "<b>Letter = </b>" + pad.id;
       if(!isPaused && count != 0){
-      placeSong(elt.toLowerCase());
+      placeSong(pad.id.toLowerCase());
     }
       isPress = true;
     }
@@ -71,57 +71,3 @@ document.addEventListener("keyup",function(el){
     pad.style.background = "white";
   });
 });
-
-
-
-function placeSong(value){
-  var elt = document.createElement('div');
-  elt.className = "point";
-  elt.style.left = count + "%";
-  document.getElementById('timeline').appendChild(elt);
-
-  arrangement.push({timecode: count, note: value+".mp3"})
-}
-
-
-
-function startCursor(e) {
-  var button = document.getElementById('play-mode');
-  if(button.innerHTML == "start"){
-    isPaused = false;
-    button.innerHTML = "pause";
-  }else{
-    isPaused = true;
-    button.innerHTML = "start";
-  }
-  var cursor = document.getElementById('cursor');
-  count = 0;
-  if (isLauched){
-    console.log("Reset");
-  interval = window.clearInterval(interval);
-  interval = null;
-}else{
-  console.log("first");
-  interval = 0;
-  isLauched = true;
-}
-  console.log(interval);
-  interval = window.setInterval( deplace, 10);
-}
-
-function clearTimeline(){
-  var points = document.getElementsByClassName('point');
-  Array.from(points).forEach(p=>{
-    p.remove();
-  });
-}
-
-function deplace(){
-  if (count < 99.9 && (isPaused == false)) {
-  count += 0.1;
-  var cursor = document.getElementById('cursor');
-  cursor.style.left = count +"%";
-}else{
-  count = 0;
-}
-}
