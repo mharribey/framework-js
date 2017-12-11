@@ -60,6 +60,7 @@ function clearTimeline(){
   Array.from(points).forEach(p=>{
     p.remove();
   });
+  arrangement = [];
 }
 
 function deplace(){
