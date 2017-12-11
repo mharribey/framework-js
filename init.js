@@ -12,10 +12,12 @@ var array = ["A","Z","E","R","T",
 
 var arrangement = [];
 var count = 0;
+var interval = 0;
+
+var isGoing = false;
 var isPaused = true;
 var isLauched = false;
 var isPress = false;
-var interval = 0;
 
 // CREATION LAUNCHPAD + LETTRES
 Array.from(array).forEach(letter=>{
@@ -64,6 +66,7 @@ document.addEventListener("keyup",function(el){
     pad.style.backgroundColor = "blue";
   });
 });
+<<<<<<< HEAD
 
 
 function placeSong(value){
@@ -117,3 +120,5 @@ function deplace(){
   count = 0;
 }
 }
+=======
+>>>>>>> ffb6d042bbb6f87ed927c55f8ded29cbaf331a7c
