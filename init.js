@@ -66,7 +66,7 @@ document.addEventListener("keyup",function(el){
     pad.style.backgroundColor = "blue";
   });
 });
-<<<<<<< HEAD
+
 
 
 function placeSong(value){
@@ -120,5 +120,3 @@ function deplace(){
   count = 0;
 }
 }
-=======
->>>>>>> ffb6d042bbb6f87ed927c55f8ded29cbaf331a7c
