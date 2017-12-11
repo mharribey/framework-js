@@ -20,6 +20,14 @@ var isPaused = true;
 var isLauched = false;
 var isPress = false;
 
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+      startCursor();
+    }
+    if(e.keyCode == 13){
+      clearTimeline();
+    }
+}
 
 // CREATION LAUNCHPAD + LETTRES
 Array.from(array).forEach(letter=>{
@@ -32,7 +40,7 @@ Array.from(item).forEach(pad=>{
 
   pad.addEventListener("click",function(){
     Array.from(item).forEach(pad1=>{
-      pad1.style.backgroundColor = "white";
+      pad1.style.background = "white";
     });
     this.style.background = "radial-gradient(red,white)";
     var elt = this.id;
@@ -64,9 +72,8 @@ document.addEventListener("keydown",function(el){
   });
 });
 
-document.addEventListener("keyup",function(el){
+document.addEventListener("keyup",function(){
   isPress = false;
-  var keyName = el.key;
   Array.from(item).forEach(pad=>{
     pad.style.background = "white";
   });

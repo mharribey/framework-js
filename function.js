@@ -20,7 +20,7 @@ function getRandomColor() {
 }
 
 
-function startCursor(e) {
+function startCursor() {
   var button = document.getElementById('play-mode');
   var cursor = document.getElementById('cursor');
   count = 0;
