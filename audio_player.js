@@ -1,7 +1,8 @@
-
-
 function playSound(note){
-var path = "audio/"+note + ".wav";
-var audio = new Audio(path);
-audio.play();
+  var path, audio;
+
+  path = "audio/"+note+".mp3";
+
+  audio = new Audio(path);
+  audio.play();
 }

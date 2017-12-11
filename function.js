@@ -25,7 +25,6 @@ function startCursor() {
   var cursor = document.getElementById('cursor');
   count = 0;
 
-
   if(button.innerHTML == "start"){
     isGoing = true;
     isPaused = false;
@@ -34,6 +33,7 @@ function startCursor() {
     isPaused = true;
     isGoing = false;
     button.innerHTML = "start";
+    deleteTimecode();
   }
 
   if (isLauched){

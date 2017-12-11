@@ -71,6 +71,7 @@ h1 {
   height: 50px;
   width: 2px;
   background: #FFFFFF;
+  cursor:pointer;
 }
 
 .link {
