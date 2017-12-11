@@ -1,4 +1,4 @@
-<?php require 'header.php' ?>
+<?php require 'header.php'; ?>
 
 <html>
   <head>
@@ -35,5 +35,6 @@
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="audio_player.js"></script>
+    <script type="text/javascript" src="saver.js"></script>
   </body>
 </html>
