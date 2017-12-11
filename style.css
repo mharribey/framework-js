@@ -71,7 +71,7 @@ h1 {
   position: absolute;
   height: 50px;
   width: 2px;
-  background: #000000;
+  background: #FFFFFF;
 }
 
 @media screen and (max-width:500px){

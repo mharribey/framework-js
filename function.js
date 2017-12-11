@@ -4,7 +4,7 @@ function placeSong(value){
   elt.className = "point";
   elt.style.left = count + "%";
   document.getElementById('timeline').appendChild(elt);
-  playSound('fghjkl');
+  playSound(value.toUpperCase());
   if(isGoing == true){
     arrangement.push({timecode: count, note: value+".mp3"})
   }

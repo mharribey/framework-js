@@ -1,6 +1,7 @@
 
 
-function playSound(){
-var audio = new Audio('coude.wav');
+function playSound(note){
+var path = "audio/"+note + ".wav";
+var audio = new Audio(path);
 audio.play();
 }
