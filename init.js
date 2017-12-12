@@ -4,7 +4,7 @@ var points = document.getElementsByClassName('point');
 var points2 = document.getElementsByClassName('point-sep');
 var help = document.querySelector(".help");
 var timeline = document.getElementById('timeline');
-var intervalValue;
+var intervalValue, position;
 
 
 // LETTRES

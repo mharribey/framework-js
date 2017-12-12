@@ -4,6 +4,8 @@ function placeSong(value){
   var elt2 = document.createElement('p');
   elt2.innerHTML = value.toUpperCase();
   elt.className = "point";
+  elt.draggable = true;
+  elt.id = value;
   elt.style.left = count + "%";
   elt.appendChild(elt2);
   timeline.appendChild(elt);
@@ -13,6 +15,32 @@ function placeSong(value){
   }
 }
 
+// DRAG DIV
+
+function dragDiv(){
+  Array.from(points).forEach(p=>{
+    p.addEventListener("dragstart",function(event){
+      var position = event.target.style.left;
+      for (var i = 0; i < arrangement.length; i++) {
+        if(arrangement[i].timecode+"%" == position){
+          arrangement.splice(i, 1);
+          break;
+        }
+      }
+    });
+
+    p.addEventListener("dragend",function(event){
+      var finalPos = event.clientX/window.innerWidth*100;
+      var id = event.target.id;
+      event.target.style.left = Math.round(finalPos*100)/100+"%";
+
+      if(isGoing == false){
+        arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
+      }
+
+    });
+  });
+}
 
 
 //GET BPM AND BEAT VALUE
@@ -98,12 +126,13 @@ function startCursor() {
     button.innerHTML = "pause";
     setBeat();
     getValue();
-
   } else {
     isPaused = true;
     isGoing = false;
     button.innerHTML = "start";
     deleteTimecode();
+    dragDiv();
+    console.log(arrangement);
   }
 
   if (isLauched){
@@ -113,7 +142,6 @@ function startCursor() {
     interval = 0;
     isLauched = true;
   }
-  console.log(intervalValue);
   interval = window.setInterval(deplace, intervalValue);
 }
 
@@ -122,7 +150,6 @@ function checkTimeline(){
   for (var i = 0; i < arrangement.length; i++) {
     if(arrangement[i]["timecode"] == count){
       playSound(arrangement[i]["note"]);
-      console.log("player");
     }
   }
 }
