@@ -1,14 +1,19 @@
 // PLACER UN SAMPLE A UN TIMECODE DONNE
 function placeSong(value){
   var elt = document.createElement('div');
+  var elt2 = document.createElement('p');
+  elt2.innerHTML = value.toUpperCase();
   elt.className = "point";
   elt.style.left = count + "%";
-  document.getElementById('timeline').appendChild(elt);
+  elt.appendChild(elt2);
+  timeline.appendChild(elt);
   playSound(value.toUpperCase());
   if(isGoing == true){
     arrangement.push({timecode: Math.round(count*100)/100, note: value})
   }
 }
+
+
 
 //GET BPM AND BEAT VALUE
 function getValue(){
