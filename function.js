@@ -14,6 +14,37 @@ function placeSong(value){
     arrangement.push({timecode: Math.round(count*100)/100, note: value})
   }
 }
+
+// Trouver le plus proche
+
+function closest (num, arr){
+    curr = arr[0];
+    for (var i = 0; i < arr.length; i++) {
+      if (Math.abs(num - arr[i]) < Math.abs(num - curr)){
+          curr = arr[i];
+        }
+    }
+    return curr;
+  }
+
+
+  //generation des temps parfaits
+  var perfectTimecodes = [];
+
+  function generateTimecodes(){
+
+    var current = 0;
+
+    while (current < 100) {
+      console.log(current);
+      perfectTimecodes.push(current);
+      current += 100/16;
+    }
+  }
+
+  generateTimecodes();
+
+
 // DRAG DIV
 
 function dragDiv(){
@@ -30,6 +61,7 @@ function dragDiv(){
 
     p.addEventListener("dragend",function(event){
       var finalPos = event.clientX/window.innerWidth*100;
+      finalPos = closest(finalPos, perfectTimecodes)
       var id = event.target.id;
       event.target.style.left = Math.round(finalPos*100)/100+"%";
 
