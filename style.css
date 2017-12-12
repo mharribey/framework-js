@@ -77,11 +77,14 @@ h1 {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  z-index: 9999;
+  cursor: move;
+  transform: translate(0px, 0px);
 }
 .point p{
   margin:0;
   position: absolute;
-  top:50px;
+  top:60px;
   left:-2px;
   font-weight: lighter;
   font-size: 12px;
