@@ -10,6 +10,21 @@ h1 {
   text-align: center;
 }
 
+button {
+  border:none;
+  background: white;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  width: 7em;
+  margin:0.5em;
+}
+button:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
 #launchpad {
   width:40em;
   max-height:22em;

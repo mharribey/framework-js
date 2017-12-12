@@ -1,3 +1,8 @@
+/***************/
+/* ITEM SELECTION
+/*
+/***************/
+
 var lp = document.querySelector("#launchpad");
 var item = document.getElementsByClassName("item");
 var points = document.getElementsByClassName('point');
@@ -6,14 +11,22 @@ var help = document.querySelector(".help");
 var timeline = document.getElementById('timeline');
 var intervalValue, position;
 
+/***************/
+/* LAUNCHPAD ARRAY
+/*
+/***************/
 
-// LETTRES
 var array = ["A","Z","E","R","T",
             "Y","U","I","O","P",
             "Q","S","D","F","G",
             "H","J","K","L","M",
             "W","X","C","V","B",
             "N"];
+
+/***************/
+/* OTHER VARS
+/*
+/***************/
 
 var arrangement = [];
 var count = 0;
@@ -24,8 +37,14 @@ var isGoing = false;
 var isPaused = true;
 var isLauched = false;
 var isPress = false;
+var metronomeOn = false;
 
-// START WITH SPACE AND CLEAR WITH RETURN
+
+/***************/
+/* START WITH KEY
+/*
+/***************/
+
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){ //SPACE
       startCursor();
@@ -36,12 +55,21 @@ document.body.onkeyup = function(e){
 }
 
 
-// CREATION LAUNCHPAD + LETTRES
+/***************/
+/* SET LAUNCHPAD
+/*
+/***************/
+
 Array.from(array).forEach(letter=>{
   lp.innerHTML += "<div class='item' id='"+letter+"'><p>"+letter+"</p></div>";
 });
 
-// SELECTION D'UN PAD
+/***************/
+/* PAD SELECTION
+/* CLICK
+/***************/
+
+
 Array.from(item).forEach(pad=>{
   var color = getRandomColor();
 
@@ -60,7 +88,11 @@ Array.from(item).forEach(pad=>{
 });
 
 
-// AVEC TOUCHES
+/***************/
+/* PAD SELECTION
+/* KEY
+/***************/
+
 
 document.addEventListener("keydown",function(el){
   var keyName = el.key;

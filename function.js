@@ -1,4 +1,9 @@
-// PLACER UN SAMPLE A UN TIMECODE DONNE
+
+/***************/
+/* SET TIMECODE
+/*
+/***************/
+
 function placeSong(value){
   var elt = document.createElement('div');
   var elt2 = document.createElement('p');
@@ -15,7 +20,10 @@ function placeSong(value){
   }
 }
 
-// Trouver le plus proche
+/***************/
+/* FIND CLOSEST
+/*
+/***************/
 
 function closest (num, arr){
     curr = arr[0];
@@ -27,8 +35,11 @@ function closest (num, arr){
     return curr;
   }
 
+  /***************/
+  /* PERFECT TIMECODE
+  /*
+  /***************/
 
-  //generation des temps parfaits
   var perfectTimecodes = [];
 
   function generateTimecodes(){
@@ -45,7 +56,11 @@ function closest (num, arr){
   generateTimecodes();
 
 
-// DRAG DIV
+/***************/
+/* DRAG A DIV
+/*
+/***************/
+
 
 function dragDiv(){
   Array.from(points).forEach(p=>{
@@ -72,22 +87,28 @@ function dragDiv(){
     });
   });
 }
-var metronomeOn = true;
+
+
+/***************/
+/* TOGGLE METRONOME
+/*
+/***************/
+
+
 
 function toggleMetronome(){
-  if (metronomeOn == true) {
-    metronomeOn == false;
-  }else{
-    metronomeOn == true;
-  }
-  console.log(metronomeOn);
+  metronomeOn = !metronomeOn;
 
-  if (metronomeOn == false){
-    metronomeOn == true;
-  }
+  console.log(metronomeOn);
 }
 
-//GET BPM AND BEAT VALUE
+
+/***************/
+/* GET BPM/BEAT VALUE
+/*
+/***************/
+
+
 function getValue(){
   var bpm = document.querySelector(".bpm-value").value;
   var beat = document.querySelector(".beat-value");
@@ -95,6 +116,13 @@ function getValue(){
 
   intervalValue = Math.floor(((bpm/60)*value)/10);
 }
+
+
+/***************/
+/* DISPLAY BEAT
+/*
+/***************/
+
 
 function setBeat(){
   var beat = document.querySelector(".beat-value");
@@ -148,7 +176,12 @@ function setBeat(){
 }
 
 
-// RANDOM COLOR FOR BOX SHADOW
+/***************/
+/* RANDOM COLOR FOR
+/* BOX SHADOW
+/***************/
+
+
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -158,7 +191,13 @@ function getRandomColor() {
   return color;
 }
 
-// DEMARRE LE DEPLACEMENT DU CURSEUR
+
+/***************/
+/* START CURSOR
+/*
+/***************/
+
+
 function startCursor() {
   var button = document.getElementById('play-mode');
   var cursor = document.getElementById('cursor');
@@ -189,7 +228,13 @@ function startCursor() {
   interval = window.setInterval(deplace, intervalValue);
 }
 
-//LIS LES SONS SUR LA TIMELINE
+
+/***************/
+/* READ TIMELINE
+/*
+/***************/
+
+
 function checkTimeline(){
   for (var i = 0; i < arrangement.length; i++) {
     if(arrangement[i]["timecode"] == count){
@@ -198,7 +243,13 @@ function checkTimeline(){
   }
 }
 
-//REINITIALISE LA TIMELINE
+
+/***************/
+/* CLEAR TIMELINE
+/*
+/***************/
+
+
 function clearTimeline(){
   var points = document.getElementsByClassName('point');
   Array.from(points).forEach(p=>{
@@ -207,7 +258,13 @@ function clearTimeline(){
   arrangement = [];
 }
 
-//DEFINI UN INTERVAL POUR LE DEPLACEMENT DU CURSEUR
+
+/***************/
+/* SET INTERVAL FOR
+/* CURSOR
+/***************/
+
+
 function deplace(){
   metronome();
   var cursor = document.getElementById('cursor');
@@ -221,6 +278,13 @@ function deplace(){
   }
 }
 
+/***************/
+/* SET SOUND FOR
+/* METRONOME
+/***************/
+
+
+
 function metronome(){
   var beat = document.querySelector(".beat-value");
   var beatvalue = beat.options[beat.selectedIndex].value;
@@ -231,7 +295,13 @@ function metronome(){
   }
   }
 
-//PERMET DE DETRUIRE UN TIMECODE SPECIFIQUE
+
+/***************/
+/* DELETE TIMECODE
+/*
+/***************/
+
+
 function deleteTimecode(){
   Array.from(points).forEach(p=>{
     p.addEventListener("click",function(){
