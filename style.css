@@ -78,6 +78,15 @@ h1 {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
+.point p{
+  margin:0;
+  position: absolute;
+  top:50px;
+  left:-2px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
 .point-sep {
   z-index: 99999;
   opacity: 0.2;
@@ -108,7 +117,7 @@ h1 {
 .help {
   font-weight: normal;
   justify-content: center;
-  margin: 2em auto 0;
+  margin: 4em auto 0;
   display: flex;
 }
 
