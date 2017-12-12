@@ -3,7 +3,7 @@
 /**
  *
  */
-class User
+class Musician extends Manager
 {
 
   private $id;

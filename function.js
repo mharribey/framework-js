@@ -14,7 +14,6 @@ function placeSong(value){
     arrangement.push({timecode: Math.round(count*100)/100, note: value})
   }
 }
-
 // DRAG DIV
 
 function dragDiv(){
@@ -41,7 +40,20 @@ function dragDiv(){
     });
   });
 }
+var metronomeOn = true;
 
+function toggleMetronome(){
+  if (metronomeOn == true) {
+    metronomeOn == false;
+  }else{
+    metronomeOn == true;
+  }
+  console.log(metronomeOn);
+
+  if (metronomeOn == false){
+    metronomeOn == true;
+  }
+}
 
 //GET BPM AND BEAT VALUE
 function getValue(){
@@ -165,6 +177,7 @@ function clearTimeline(){
 
 //DEFINI UN INTERVAL POUR LE DEPLACEMENT DU CURSEUR
 function deplace(){
+  metronome();
   var cursor = document.getElementById('cursor');
   checkTimeline();
   if (count < 99.9 && (isPaused == false)) {
@@ -175,6 +188,16 @@ function deplace(){
     count = 0;
   }
 }
+
+function metronome(){
+  var beat = document.querySelector(".beat-value");
+  var beatvalue = beat.options[beat.selectedIndex].value;
+  //console.log(count);
+  //console.log(count % (Math.round((100/beatvalue)*100)/100));
+  if (count % (Math.round((100/beatvalue)*100)/100) == 0 && isPaused == false && metronomeOn == true) {
+    playSound('e');
+  }
+  }
 
 //PERMET DE DETRUIRE UN TIMECODE SPECIFIQUE
 function deleteTimecode(){

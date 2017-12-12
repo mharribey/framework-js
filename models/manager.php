@@ -4,7 +4,7 @@
 /**
  *
  */
-class Manager
+abstract class Manager
 {
 
   private $db;
@@ -16,7 +16,7 @@ class Manager
   }
 
   function createTimeline(){
-    $this->db->query('INSERT INTO timeline (TimelineName, UserID) VALUES (test, 0)')
+    $this->db->query('INSERT INTO timeline (TimelineName, UserID) VALUES (test, 0)');
   }
 
   public function saveUser(User $user){

@@ -1,4 +1,10 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+ ?>
 <?php require 'header.php'; ?>
+<?php require 'controllers/application_controller.php'; ?>
 
 <html>
   <head>
@@ -25,7 +31,8 @@
     <button onclick="startCursor()" id="play-mode">start</button>
     <button onclick="clearTimeline()">clear</button>
     <button onclick="">save</button>
-    <div class="timeline" id="timeline" dragover="true">
+    <button onclick="toggleMetronome()">metronome</button>
+    <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">
 
       </div>
