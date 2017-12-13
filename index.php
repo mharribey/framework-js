@@ -35,8 +35,8 @@ ini_set('display_errors', 1);
     </div>
 
     <div class="buttons">
-      <button onclick="startCursor()" id="play-mode" hidden="true">start</button>
-      <button onclick="clearTimeline()" hidden="true">clear</button>
+      <button onclick="startCursor()" id="play-mode">start</button>
+      <button onclick="clearTimeline()">clear</button>
       <button onclick="">save</button>
       <button onclick="toggleMetronome()">metronome</button>
     </div>

@@ -130,6 +130,7 @@ function dragDiv(){
       var id = event.target.id;
       event.target.style.left = Math.round(finalPos*100)/100+"%";
       arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
+      console.log(arrangement);
     });
   });
 }
