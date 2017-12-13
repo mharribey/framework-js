@@ -125,12 +125,14 @@ function dragDiv(){
 
     p.addEventListener("dragend",function(event){
       hideBeats();
+
       var finalPos = event.clientX/window.innerWidth*100;
       finalPos = closest(finalPos, perfectTimecodes);
+
       var id = event.target.id;
       event.target.style.left = Math.round(finalPos*100)/100+"%";
+
       arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
-      console.log(arrangement);
     });
   });
 }
@@ -238,6 +240,22 @@ function getRandomColor() {
   return color;
 }
 
+/***************/
+/* CLEAN ARRAY
+/*
+/***************/
+
+function cleanArray(a) {
+  for(var i =0;i<a.length;i++){
+    for(j in a){
+      if(j.timecode == a[i].timecode){
+        a.splice(j,1);
+      }
+    }
+  }
+  return a;
+}
+
 
 /***************/
 /* START CURSOR
@@ -262,6 +280,7 @@ function startCursor() {
     button.innerHTML = "start";
     deleteTimecode();
     dragDiv();
+    console.log(cleanArray(arrangement));
     console.log(arrangement);
   }
 
@@ -340,7 +359,7 @@ function metronome(){
   if (count % (Math.round((100/beatvalue)*100)/100) == 0 && isPaused == false && metronomeOn == true) {
     playSound('e');
   }
-  }
+}
 
 
 /***************/
