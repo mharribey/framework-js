@@ -20,10 +20,12 @@ function placeSong(value){
   }
 }
 
+
 /***************/
 /* FIND CLOSEST
 /*
 /***************/
+
 
 function closest (num, arr){
     curr = arr[0];
@@ -40,6 +42,7 @@ function closest (num, arr){
   /*
   /***************/
 
+
   var perfectTimecodes = [];
 
   function generateTimecodes(){
@@ -55,6 +58,52 @@ function closest (num, arr){
   generateTimecodes();
 
 
+  /***************/
+  /* DISPLAY PERFECT TIMECODE
+  /*
+  /***************/
+
+  function displayBeats() {
+    for (var i = 0; i < perfectTimecodes.length; i++) {
+      var elt = document.createElement('div');
+      elt.className = "beats";
+      elt.style.left = perfectTimecodes[i] + "%";
+      timeline.appendChild(elt);
+    }
+    var bars = document.getElementsByClassName('beats');
+    for (var i = 0; i < bars.length; i++) {
+      bars[i].style.opacity = "1";
+    }
+  }
+
+  function opacityBeats() {
+    console.log('start');
+    var bars = document.getElementsByClassName('beats');
+    for (var i = 0; i < bars.length; i++) {
+      bars[i].style.opacity = "0";
+    }
+  }
+
+  function hideBeats() {
+    var bars = document.getElementsByClassName('beats');
+    for (var i = 0; i < bars.length; i++) {
+      bars[i].style.animation = "fade-out .5s ease-in forwards";
+    }
+    console.log('end');
+    var bars = document.getElementsByClassName('beats');
+    opacityBeats();
+    setTimeout(delElts, 500);
+
+  }
+
+
+  function delElts() {
+    var bars = document.getElementsByClassName('beats');
+    Array.from(bars).forEach(b=>{
+      b.remove();
+    });
+  }
+
 /***************/
 /* DRAG A DIV
 /*
@@ -64,6 +113,7 @@ function closest (num, arr){
 function dragDiv(){
   Array.from(points).forEach(p=>{
     p.addEventListener("dragstart",function(event){
+      displayBeats();
       var position = event.target.style.left;
       for (var i = 0; i < arrangement.length; i++) {
         if(arrangement[i].timecode+"%" == position){
@@ -74,8 +124,9 @@ function dragDiv(){
     });
 
     p.addEventListener("dragend",function(event){
+      hideBeats();
       var finalPos = event.clientX/window.innerWidth*100;
-      finalPos = closest(finalPos, perfectTimecodes)
+      finalPos = closest(finalPos, perfectTimecodes);
       var id = event.target.id;
       event.target.style.left = Math.round(finalPos*100)/100+"%";
       arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});

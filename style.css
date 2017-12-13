@@ -120,6 +120,17 @@ button:hover{
   left:0%;
 }
 
+.beats {
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  background: #1f1f1f;
+  left:0%;
+  opacity: 0;
+  transition: all .3s;
+  animation: fade-in .5s ease-in forwards;
+}
+
 .point,.point-sep {
   position: absolute;
   height: 50px;
@@ -193,5 +204,25 @@ p {
   #launchpad {
     width:21em;
     max-height:21em;
+  }
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from{
+    opacity: 1;
+  }
+
+  to{
+    opacity: 0;
   }
 }
