@@ -47,7 +47,6 @@ function closest (num, arr){
     var current = 0;
 
     while (current < 100) {
-      console.log(current);
       perfectTimecodes.push(current);
       current += 100/16;
     }
@@ -79,11 +78,7 @@ function dragDiv(){
       finalPos = closest(finalPos, perfectTimecodes)
       var id = event.target.id;
       event.target.style.left = Math.round(finalPos*100)/100+"%";
-
-      if(isGoing == false){
-        arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
-      }
-
+      arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
     });
   });
 }

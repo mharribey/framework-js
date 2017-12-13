@@ -14,7 +14,13 @@ ini_set('display_errors', 1);
   </head>
   <body>
     <div id="launchpad"></div>
-
+    <img src="audio/question.png" alt="question" id="icon-help">
+    <div class="help">
+      <p> <span>1.</span> Click on a time code to delete it </p>
+      <p> <span>2.</span> Drag a time code to deplace it </p>
+      <p> <span>3.</span> Press "space" to start timeline </p>
+      <p> <span>4.</span> Press "enter" to clear timeline </p>
+    </div>
     <div class="result">
       <p>Nombre de temps -</p>
       <select class="beat-value" name="bpm-value">
@@ -28,16 +34,17 @@ ini_set('display_errors', 1);
       <input type="number" name="" value="120" class="bpm-value">
     </div>
 
-    <button onclick="startCursor()" id="play-mode">start</button>
-    <button onclick="clearTimeline()">clear</button>
-    <button onclick="">save</button>
-    <button onclick="toggleMetronome()">metronome</button>
+    <div class="buttons">
+      <button onclick="startCursor()" id="play-mode" hidden="true">start</button>
+      <button onclick="clearTimeline()" hidden="true">clear</button>
+      <button onclick="">save</button>
+      <button onclick="toggleMetronome()">metronome</button>
+    </div>
     <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">
 
       </div>
     </div>
-    <p class="help">Click on a beat to delete it, drag to deplace it.</p>
     <a href="liste.php" class="link">Sounds List</a>
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>

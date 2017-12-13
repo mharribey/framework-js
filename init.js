@@ -7,7 +7,8 @@ var lp = document.querySelector("#launchpad");
 var item = document.getElementsByClassName("item");
 var points = document.getElementsByClassName('point');
 var points2 = document.getElementsByClassName('point-sep');
-var help = document.querySelector(".help");
+var help = document.querySelector("#icon-help");
+var helpContent = document.querySelector('.help');
 var timeline = document.getElementById('timeline');
 var intervalValue, position;
 
@@ -116,4 +117,17 @@ document.addEventListener("keyup",function(){
   Array.from(item).forEach(pad=>{
     pad.style.background = "white";
   });
+});
+
+
+/***************/
+/* HELP HOVER
+/*
+/***************/
+
+help.addEventListener("mouseover",function(){
+  helpContent.style.display = "flex";
+});
+help.addEventListener("mouseleave",function(){
+  helpContent.style.display = "none";
 });
