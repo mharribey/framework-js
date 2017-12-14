@@ -15,8 +15,9 @@ function placeSong(value){
   elt.appendChild(elt2);
   timeline.appendChild(elt);
   playSound(value.toUpperCase());
+
   if(isGoing == true){
-    arrangement.push({timecode: Math.round(count*100)/100, note: value})
+    arrangement.push({timecode: (Math.round(count*10)/10), note: value})
   }
 }
 
@@ -67,7 +68,7 @@ function closest (num, arr){
     for (var i = 0; i < perfectTimecodes.length; i++) {
       var elt = document.createElement('div');
       elt.className = "beats";
-      elt.style.left = perfectTimecodes[i] + "%";
+      elt.style.left = (Math.round(perfectTimecodes[i]*10)/10) + "%";
       timeline.appendChild(elt);
     }
     var bars = document.getElementsByClassName('beats');
@@ -130,9 +131,9 @@ function dragDiv(){
       finalPos = closest(finalPos, perfectTimecodes);
 
       var id = event.target.id;
-      event.target.style.left = Math.round(finalPos*100)/100+"%";
+      event.target.style.left = (Math.round(finalPos*10)/10) + "%";
 
-      arrangement.push({timecode: Math.round(finalPos*100)/100, note: id});
+      arrangement.push({timecode: (Math.round(finalPos*10)/10), note: id});
     });
   });
 }
@@ -246,9 +247,11 @@ function getRandomColor() {
 /***************/
 
 function cleanArray(a) {
-  for(var i =0;i<a.length;i++){
-    for(j in a){
-      if(j.timecode == a[i].timecode){
+  for(var i = 0 ; i < a.length ; i++){
+    for(var j = 0 ; j < a.length ; j++) {
+      console.log(a[i].timecode == a[j].timecode);
+      if(a[i].timecode === a[j].timecode && j != i){
+        console.log("ok");
         a.splice(j,1);
       }
     }
@@ -275,12 +278,12 @@ function startCursor() {
     setBeat();
     getValue();
   } else {
+    arrangement = cleanArray(arrangement);
     isPaused = true;
     isGoing = false;
     button.innerHTML = "start";
     deleteTimecode();
     dragDiv();
-    console.log(cleanArray(arrangement));
     console.log(arrangement);
   }
 
@@ -337,7 +340,7 @@ function deplace(){
   checkTimeline();
   if (count < 99.9 && (isPaused == false)) {
     count += 0.1;
-    count = Math.round(count*100)/100;
+    count = (Math.round(count*10)/10);
     cursor.style.left = count + "%";
   }else{
     count = 0;
@@ -350,13 +353,12 @@ function deplace(){
 /***************/
 
 
-
 function metronome(){
   var beat = document.querySelector(".beat-value");
   var beatvalue = beat.options[beat.selectedIndex].value;
   //console.log(count);
   //console.log(count % (Math.round((100/beatvalue)*100)/100));
-  if (count % (Math.round((100/beatvalue)*100)/100) == 0 && isPaused == false && metronomeOn == true) {
+  if (count % (Math.round((100/beatvalue)*10)/10) == 0 && isPaused == false && metronomeOn == true) {
     playSound('e');
   }
 }
