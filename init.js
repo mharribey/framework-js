@@ -9,6 +9,8 @@ var points = document.getElementsByClassName('point');
 var points2 = document.getElementsByClassName('point-sep');
 var help = document.querySelector("#icon-help");
 var helpContent = document.querySelector('.help');
+var option = document.querySelector("#icon-option");
+var optionContent = document.querySelector('.options');
 var timeline = document.getElementById('timeline');
 var intervalValue, position;
 
@@ -130,4 +132,17 @@ help.addEventListener("mouseover",function(){
 });
 help.addEventListener("mouseleave",function(){
   helpContent.style.display = "none";
+});
+
+/***************/
+/* OPTION CLICK
+/*
+/***************/
+
+option.addEventListener("click",function(){
+  if(optionContent.style.display == "none"){
+    optionContent.style.display = "flex";
+  } else {
+    optionContent.style.display = "none";
+  }
 });

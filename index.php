@@ -22,17 +22,20 @@ ini_set('display_errors', 1);
       <p> <span>3.</span> Press "space" to start timeline </p>
       <p> <span>4.</span> Press "enter" to clear timeline </p>
     </div>
-    <div class="result">
-      <p>Nombre de temps -</p>
-      <select class="beat-value" name="bpm-value">
-        <option value="8">8</option>
-        <option value="16">16</option>
-        <option value="32">32</option>
-      </select>
-    </div>
-    <div class="result">
-      <p>BPM -</p>
-      <input type="number" name="" value="120" class="bpm-value">
+    <img src="audio/options.png" alt="option" id="icon-option">
+    <div class="options">
+      <div class="result">
+        <p>Nombre de temps -</p>
+        <select class="beat-value" name="bpm-value">
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="32">32</option>
+        </select>
+      </div>
+      <div class="result">
+        <p>BPM -</p>
+        <input type="number" name="" value="120" class="bpm-value">
+      </div>
     </div>
 
     <div class="buttons">
