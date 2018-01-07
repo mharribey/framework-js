@@ -49,8 +49,9 @@ ini_set('display_errors', 1);
     <div class="buttons">
       <button onclick="startCursor()" id="play-mode">start</button>
       <button onclick="clearTimeline()">clear</button>
-      <button onclick="">save</button>
+      <button onclick="saveTimeline()">save</button>
       <button onclick="toggleMetronome()">metronome</button>
+      <button onclick="testSaver()">test</button>
     </div>
     <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">
@@ -61,6 +62,6 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="audio_player.js"></script>
-    <script type="text/javascript" src="saver.js"></script>
+    <script type="text/javascript" src="sender.js"></script>
   </body>
 </html>

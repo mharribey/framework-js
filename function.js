@@ -166,7 +166,7 @@ function getValue(){
   var value = beat.options[beat.selectedIndex].value;
   vol = volValue.options[volValue.selectedIndex].value;
 
-  intervalValue = Math.floor(((bpm/60)*value)/10);
+  intervalValue = Math.floor(((60/bpm)*value));
 }
 
 
@@ -269,6 +269,7 @@ function cleanArray(a) {
 
 
 function startCursor() {
+  console.log(intervalValue);
   var button = document.getElementById('play-mode');
   var cursor = document.getElementById('cursor');
   count = 0;
@@ -340,7 +341,7 @@ function deplace(){
   metronome();
   var cursor = document.getElementById('cursor');
   checkTimeline();
-  if (count < 99.9 && (isPaused == false)) {
+  if (count < 100 && (isPaused == false)) {
     count += 0.1;
     count = (Math.round(count*10)/10);
     cursor.style.left = count + "%";
@@ -358,12 +359,25 @@ function deplace(){
 function metronome(){
   var beat = document.querySelector(".beat-value");
   var beatvalue = beat.options[beat.selectedIndex].value;
-  //console.log(count);
+
+  //console.log(isClose(100/beatvalue));
+  console.log(100/beatvalue);
   //console.log(count % (Math.round((100/beatvalue)*100)/100));
-  if (count % (Math.round((100/beatvalue)*10)/10) == 0 && isPaused == false && metronomeOn == true) {
+// <<<<<<< Updated upstream
+//   if (count % (Math.round((100/beatvalue)*10)/10) == 0 && isPaused == false && metronomeOn == true) {
+// =======
+  if (isClose(100/beatvalue) && isPaused == false && metronomeOn == true) {
     playSound('e');
   }
 }
+
+  function isClose (beat){
+      if (Math.abs(count % beat) < 0.001) {
+        return true;
+      }else{
+        return false;
+      }
+    }
 
 
 /***************/
