@@ -15,8 +15,8 @@ class Manager
     $this->db = new PDO('mysql:host=localhost;dbname=launchpad','root', 'root');
   }
 
-  function createTimeline(){
-    $this->db->query("INSERT INTO Timeline (TimelineName, UserID) VALUES ('timeline de test', 1)");
+  function createTimeline($name){
+    $this->db->query("INSERT INTO Timeline (TimelineName, UserID) VALUES ('".$name."', 1)");
   }
 
   function saveSounds($sounds, $timeline){
@@ -32,9 +32,25 @@ class Manager
   public function saveUser(User $user){
   }
 
-  public function getLastPatterns(){
-    $req = $this->db->query('SELECT * FROM Timeline ORDER BY TimelineID DESC LIMIT 10');
-    return $req->fetch(PDO::FETCH_ASSOC);
+  public function getLastTimelines(){
+    $req = 0;
+    $req = $this->db->prepare('SELECT * FROM Timeline ORDER BY TimelineID DESC LIMIT 10');
+    $req->execute();
+    $arr = $req->errorInfo();
+    $all = [];
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      array_push($all, $data);
+    }
+    return $all;
+  }
+
+  public function getTimeline($id){
+    $req = $this->db->query('SELECT * FROM Sound WHERE TimelineID ='. $id);
+    $all = [];
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      array_push($all, $data);
+    }
+    return $all;
   }
 
   public function getLastId(){

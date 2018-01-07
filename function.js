@@ -21,6 +21,20 @@ function placeSong(value){
   }
 }
 
+function placeSongWithTimecode(timecode, value){
+  var elt = document.createElement('div');
+  var elt2 = document.createElement('p');
+  elt2.innerHTML = value.toUpperCase();
+  elt.className = "point";
+  elt.draggable = true;
+  elt.id = value;
+  elt.style.left = timecode + "%";
+  elt.appendChild(elt2);
+  timeline.appendChild(elt);
+
+    arrangement.push({timecode: timecode, note: value})
+}
+
 
 /***************/
 /* FIND CLOSEST

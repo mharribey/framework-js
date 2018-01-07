@@ -14,7 +14,7 @@ require "models/pattern.php";
 
 <?php
 
-$timeline = new Timeline('david guetto');
+$timeline = new Timeline($_POST['title']);
 $sounds = json_decode($_POST['data'], true);
 foreach ($sounds as $timecode => $data) {
   var_dump($data["timecode"]);

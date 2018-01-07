@@ -44,6 +44,9 @@ ini_set('display_errors', 1);
           <option value="3">VOL. 3</option>
         </select>
       </div>
+      <select class="" id="charger" onclick="loadTimelines()" name="">
+
+      </select>
     </div>
 
     <div class="buttons">
@@ -51,7 +54,8 @@ ini_set('display_errors', 1);
       <button onclick="clearTimeline()">clear</button>
       <button onclick="saveTimeline()">save</button>
       <button onclick="toggleMetronome()">metronome</button>
-      <button onclick="testSaver()">test</button>
+      <button onclick="Timelines()">test</button>
+      <input type="text" name="" placeholder="timeline name" value="" id="timelineName">
     </div>
     <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">

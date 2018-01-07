@@ -30,6 +30,7 @@ class Timeline
   }
 
   public function sounds(){return $this->sounds;}
+  public function timelineName(){return $this->timelineName;}
 }
 
 
