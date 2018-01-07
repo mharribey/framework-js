@@ -44,9 +44,13 @@ ini_set('display_errors', 1);
           <option value="3">VOL. 3</option>
         </select>
       </div>
-      <select class="" id="charger" onclick="loadTimelines()" name="">
+      <div class="result">
+        <p>List -</p>
+        <select class="timeline-value" id="charger" onclick="loadTimelines()" name="">
+          <option selected="selected">Choose</option>
+        </select>
+      </div>
 
-      </select>
     </div>
 
     <div class="buttons">
@@ -54,15 +58,13 @@ ini_set('display_errors', 1);
       <button onclick="clearTimeline()">clear</button>
       <button onclick="saveTimeline()">save</button>
       <button onclick="toggleMetronome()">metronome</button>
-      <button onclick="Timelines()">test</button>
       <input type="text" name="" placeholder="timeline name" value="" id="timelineName">
     </div>
     <div class="timeline" id="timeline">
       <div class="cursor" id="cursor">
-
       </div>
     </div>
-    <a href="liste.php" class="link">Sounds List</a>
+
     <script type="text/javascript" src="function.js"></script>
     <script type="text/javascript" src="init.js"></script>
     <script type="text/javascript" src="audio_player.js"></script>
