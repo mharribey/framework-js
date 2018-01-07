@@ -12,7 +12,10 @@ var helpContent = document.querySelector('.help');
 var option = document.querySelector("#icon-option");
 var optionContent = document.querySelector('.options');
 var timeline = document.getElementById('timeline');
-var intervalValue, position;
+var set = document.querySelector(".set-value")
+var intervalValue, position, vol;
+
+getValue();
 
 /***************/
 /* LAUNCHPAD ARRAY
@@ -145,4 +148,13 @@ option.addEventListener("click",function(){
   } else {
     optionContent.style.display = "none";
   }
+});
+
+/***************/
+/* GET VALUE
+/*
+/***************/
+
+set.addEventListener("change",function(){
+  getValue();
 });

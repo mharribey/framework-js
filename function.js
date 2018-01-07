@@ -162,7 +162,9 @@ function toggleMetronome(){
 function getValue(){
   var bpm = document.querySelector(".bpm-value").value;
   var beat = document.querySelector(".beat-value");
+  var volValue = document.querySelector(".set-value");
   var value = beat.options[beat.selectedIndex].value;
+  vol = volValue.options[volValue.selectedIndex].value;
 
   intervalValue = Math.floor(((bpm/60)*value)/10);
 }

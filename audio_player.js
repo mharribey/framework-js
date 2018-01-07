@@ -1,8 +1,9 @@
 function playSound(note){
   var path, audio;
 
-  path = "audio/"+note+".mp3";
+  path = "audio/"+vol+"/"+note+".mp3";
 
+  console.log(path);
   audio = new Audio(path);
   audio.play();
 }

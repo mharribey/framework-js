@@ -200,10 +200,10 @@ p {
   margin:0;
 }
 
-.beat-value, .bpm-value{
+.beat-value, .bpm-value, .set-value{
   margin-left:0.5em;
   height:2em;
-  width:4em;
+  width:6em;
   text-align: center;
   align-self:center;
   font-weight: bolder;
