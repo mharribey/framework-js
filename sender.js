@@ -45,11 +45,14 @@ function saveTimeline(){
   http.onreadystatechange = function() {//Call a function when the state changes.
       if(http.readyState == 4 && http.status == 200) {
           alert("c'est enregistré correctement bravo!");
+          timelinesLoaded = false;
+          loadTimelines();
       }
   }
   http.send(params);
 }
 }
+
 
 function loadTimelines(){
   var http = new XMLHttpRequest();
@@ -72,6 +75,7 @@ var timelinesLoaded = false;
 
 function parseTimelines(data){
   if (!timelinesLoaded){
+    document.getElementById('charger').innerHTML = "";
   var parsed = JSON.parse(data);
   for (var i = 0; i < parsed.length; i++) {
     var elt = document.createElement('option');

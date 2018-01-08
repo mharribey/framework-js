@@ -17,7 +17,7 @@ require "models/pattern.php";
 $timeline = new Timeline($_POST['title']);
 $sounds = json_decode($_POST['data'], true);
 foreach ($sounds as $timecode => $data) {
-  var_dump($data["timecode"]);
+  //var_dump($data["timecode"]);
   $sound = new Sound($data["timecode"], $data['note']);
   $timeline->addSound($sound);
 }
